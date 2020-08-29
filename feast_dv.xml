@@ -1,0 +1,98 @@
+<dv version="2.0">
+    <node name="mainloop" path="/mainloop/">
+        <attr key="_guiSupport" type="string">{"lastDeployedHash":"548989faf0423c0ea3923213c407ee70696e4ee4"}</attr>
+        <node name="_visualizer_capture___events_a80ada05ce064f758bf5cce08485e513" path="/mainloop/_visualizer_capture___events_a80ada05ce064f758bf5cce08485e513/">
+            <attr key="_guiSupport" type="string">{"visualizerX":0,"visualizerY":0,"size":2,"minimized":false,"boxX":400.0,"boxY":500.0}</attr>
+            <attr key="_priorityAttributes" type="string">compression,ipAddress,portNumber</attr>
+            <attr key="compression" type="string">NONE</attr>
+            <attr key="ipAddress" type="string">127.0.0.1</attr>
+            <attr key="logLevel" type="string">NOTICE</attr>
+            <attr key="maxConcurrentConnections" type="int">10</attr>
+            <attr key="maxConnectionsBacklog" type="int">5</attr>
+            <attr key="maxDataBacklog" type="int">5</attr>
+            <attr key="moduleLibrary" type="string">dv_output_net_tcp_server</attr>
+            <attr key="portNumber" type="int">0</attr>
+            <attr key="running" type="bool">true</attr>
+            <attr key="timeout" type="long">0</attr>
+            <node name="inputs" path="/mainloop/_visualizer_capture___events_a80ada05ce064f758bf5cce08485e513/inputs/">
+                <node name="output0" path="/mainloop/_visualizer_capture___events_a80ada05ce064f758bf5cce08485e513/inputs/output0/">
+                    <attr key="from" type="string">capture[events]</attr>
+                </node>
+            </node>
+        </node>
+        <node name="_visualizer_libfeast_dv_module___events_a7fed781184f4102a8ee6cca5c906f7c" path="/mainloop/_visualizer_libfeast_dv_module___events_a7fed781184f4102a8ee6cca5c906f7c/">
+            <attr key="_guiSupport" type="string">{"visualizerX":0,"visualizerY":0,"size":2,"minimized":false,"boxX":400.0,"boxY":500.0}</attr>
+            <attr key="_priorityAttributes" type="string">compression,ipAddress,portNumber</attr>
+            <attr key="compression" type="string">NONE</attr>
+            <attr key="ipAddress" type="string">127.0.0.1</attr>
+            <attr key="logLevel" type="string">NOTICE</attr>
+            <attr key="maxConcurrentConnections" type="int">10</attr>
+            <attr key="maxConnectionsBacklog" type="int">5</attr>
+            <attr key="maxDataBacklog" type="int">5</attr>
+            <attr key="moduleLibrary" type="string">dv_output_net_tcp_server</attr>
+            <attr key="portNumber" type="int">0</attr>
+            <attr key="running" type="bool">true</attr>
+            <attr key="timeout" type="long">0</attr>
+            <node name="inputs" path="/mainloop/_visualizer_libfeast_dv_module___events_a7fed781184f4102a8ee6cca5c906f7c/inputs/">
+                <node name="output0" path="/mainloop/_visualizer_libfeast_dv_module___events_a7fed781184f4102a8ee6cca5c906f7c/inputs/output0/">
+                    <attr key="from" type="string">libfeast_dv_module[events]</attr>
+                </node>
+            </node>
+        </node>
+        <node name="_visualizer_libfeast_dv_module___frames_baf313795936426eb7fa705c59f2934b" path="/mainloop/_visualizer_libfeast_dv_module___frames_baf313795936426eb7fa705c59f2934b/">
+            <attr key="_guiSupport" type="string">{"visualizerX":0,"visualizerY":0,"size":2,"minimized":false,"boxX":400.0,"boxY":500.0}</attr>
+            <attr key="_priorityAttributes" type="string">compression,ipAddress,portNumber</attr>
+            <attr key="compression" type="string">NONE</attr>
+            <attr key="ipAddress" type="string">127.0.0.1</attr>
+            <attr key="logLevel" type="string">NOTICE</attr>
+            <attr key="maxConcurrentConnections" type="int">10</attr>
+            <attr key="maxConnectionsBacklog" type="int">5</attr>
+            <attr key="maxDataBacklog" type="int">5</attr>
+            <attr key="moduleLibrary" type="string">dv_output_net_tcp_server</attr>
+            <attr key="portNumber" type="int">0</attr>
+            <attr key="running" type="bool">true</attr>
+            <attr key="timeout" type="long">0</attr>
+            <node name="inputs" path="/mainloop/_visualizer_libfeast_dv_module___frames_baf313795936426eb7fa705c59f2934b/inputs/">
+                <node name="output0" path="/mainloop/_visualizer_libfeast_dv_module___frames_baf313795936426eb7fa705c59f2934b/inputs/output0/">
+                    <attr key="from" type="string">libfeast_dv_module[frames]</attr>
+                </node>
+            </node>
+        </node>
+        <node name="capture" path="/mainloop/capture/">
+            <attr key="_guiSupport" type="string">{"boxX":350.0,"boxY":100.0}</attr>
+            <attr key="_priorityAttributes" type="string">file,loop</attr>
+            <attr key="file" type="string">/home/yesh/HIE/hie_cleaned_up_1-2020_03_11_10_49_25.aedat4</attr>
+            <attr key="logLevel" type="string">NOTICE</attr>
+            <attr key="loop" type="bool">true</attr>
+            <attr key="mode" type="string">timeInterval</attr>
+            <attr key="moduleLibrary" type="string">dv_input_file</attr>
+            <attr key="pause" type="bool">false</attr>
+            <attr key="running" type="bool">false</attr>
+            <attr key="seek" type="long">0</attr>
+            <attr key="seekEnd" type="long">102813701</attr>
+            <attr key="seekStart" type="long">0</attr>
+            <attr key="timeDelay" type="long">10000</attr>
+            <attr key="timeInterval" type="long">10000</attr>
+        </node>
+        <node name="libfeast_dv_module" path="/mainloop/libfeast_dv_module/">
+            <attr key="_guiSupport" type="string">{"boxX":550.0,"boxY":300.0}</attr>
+            <attr key="_priorityAttributes" type="string">running</attr>
+            <attr key="eta" type="float">0.001</attr>
+            <attr key="logLevel" type="string">NOTICE</attr>
+            <attr key="moduleLibrary" type="string">libfeast_dv_module</attr>
+            <attr key="n_neurons" type="int">10</attr>
+            <attr key="radius" type="int">4</attr>
+            <attr key="roi_x" type="int">10</attr>
+            <attr key="roi_y" type="int">10</attr>
+            <attr key="running" type="bool">true</attr>
+            <attr key="tau" type="float">1000.0</attr>
+            <attr key="thresholdClose" type="float">0.01</attr>
+            <attr key="thresholdOpen" type="float">0.01</attr>
+            <node name="inputs" path="/mainloop/libfeast_dv_module/inputs/">
+                <node name="events" path="/mainloop/libfeast_dv_module/inputs/events/">
+                    <attr key="from" type="string">capture[events]</attr>
+                </node>
+            </node>
+        </node>
+    </node>
+</dv>
