@@ -83,7 +83,6 @@ public:
 	}
 
 	FeastDV() : n_neurons(9), thresholdClose(0.01), thresholdOpen(0.02), eta(0.01), tau(10000),radius(4),lastFiringTimes(inputs.getEventInput("events").size()) {
-		outputs.getEventOutput("events").setup(1,n_neurons,"Output feast events");
 
         w = MatrixXf::Random((2*radius+1)*(2*radius+1),n_neurons);
         w.colwise().normalize();
@@ -105,6 +104,8 @@ public:
 //        dvModuleRegisterOutput(moduleData, "frames", "REMOVE");
 
         outputs.getFrameOutput("frames").setup(650,650,"Output feast frames");
+        outputs.getEventOutput("events").setup(r,r,"Output feast events");
+
 //
 
 
@@ -123,6 +124,7 @@ public:
 
         int event_x;
         int event_y;
+//        IOFormat CleanFmt(4, 0, ", ", "\n", "[", "]");
 
 
         for (const auto &event : input.events()){
@@ -140,7 +142,6 @@ public:
                                 -(static_cast<float>(event.timestamp() - lastFiringTimes.at(y+event_y-radius,x+event_x-radius))) / tau));
                     }
                 }
-//                IOFormat CleanFmt(4, 0, ", ", "\n", "[", "]");
 //                std::cout<<std::endl<<std::endl;
 
 //                for(int x=event_x-radius;x<=event_x+radius;x++){
@@ -168,7 +169,7 @@ public:
 //                    std::cout<<w.col(winnerNeuron).format(CleanFmt)<<std::endl;
 
                     thresholds(0,winnerNeuron) += thresholdClose;
-                    output << dv::Event(event.timestamp(), 0,winnerNeuron,true);
+                    output << dv::Event(event.timestamp(), static_cast<int>(winnerNeuron%r),static_cast<int>(winnerNeuron/r),true);
                 }else{
                     thresholds = thresholds - MatrixXf::Constant(1, n_neurons, thresholdOpen);
                 }
@@ -178,7 +179,6 @@ public:
             if (event.timestamp() - lastFrame > displayFreq) {
                 auto frameOutput = outputs.getFrameOutput("frames");
                 auto outFrame = frameOutput.frame();
-
                 outFrame.setTimestamp(event.timestamp());
                 cv::Mat outFrameCV;// = cv::Mat::zeros(cv::Size((2*radius+1)*r,(2*radius+1)*r), CV_32F);
                 cv::Mat outFrameResizedCV;
@@ -244,7 +244,7 @@ public:
                 r = std::ceil(guess);
                 outputFrame = Matrix<float, Dynamic,Dynamic>::Zero((2*radius+1)*r, (2*radius+1)*r);
             }
-            outputs.getEventOutput("events").setup(1,n_neurons,"Output feast events");
+            outputs.getEventOutput("events").setup(r,r,"Output feast events");
 
 
 
